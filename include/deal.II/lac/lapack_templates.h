@@ -1562,6 +1562,7 @@ geev(const char *                   jobvl,
 #ifdef DEAL_II_WITH_LAPACK
   sgeev_(
     jobvl, jobvr, n, a, lda, wr, wi, vl, ldvl, vr, ldvr, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgeev_", *info));
 #else
   (void)jobvl;
   (void)jobvr;
@@ -1602,6 +1603,7 @@ geev(const char *                   jobvl,
 #ifdef DEAL_II_WITH_LAPACK
   dgeev_(
     jobvl, jobvr, n, a, lda, wr, wi, vl, ldvl, vr, ldvr, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgeev_", *info));
 #else
   (void)jobvl;
   (void)jobvr;
@@ -1642,6 +1644,7 @@ geev(const char *                   jobvl,
 #ifdef DEAL_II_WITH_LAPACK
   cgeev_(
     jobvl, jobvr, n, a, lda, w, vl, ldvl, vr, ldvr, work, lwork, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgeev_", *info));
 #else
   (void)jobvl;
   (void)jobvr;
@@ -1682,6 +1685,7 @@ geev(const char *                   jobvl,
 #ifdef DEAL_II_WITH_LAPACK
   zgeev_(
     jobvl, jobvr, n, a, lda, w, vl, ldvl, vr, ldvr, work, lwork, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgeev_", *info));
 #else
   (void)jobvl;
   (void)jobvr;
@@ -1792,6 +1796,7 @@ geevx(const char *                   balanc,
           lwork,
           iwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgeevx_", *info));
 #else
   (void)balanc;
   (void)jobvl;
@@ -1871,6 +1876,7 @@ geevx(const char *                   balanc,
           lwork,
           iwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgeevx_", *info));
 #else
   (void)balanc;
   (void)jobvl;
@@ -1948,6 +1954,7 @@ geevx(const char *                   balanc,
           lwork,
           rwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgeevx_", *info));
 #else
   (void)balanc;
   (void)jobvl;
@@ -2024,6 +2031,7 @@ geevx(const char *                   balanc,
           lwork,
           rwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgeevx_", *info));
 #else
   (void)balanc;
   (void)jobvl;
@@ -2097,6 +2105,7 @@ gelsd(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgelsd_(m, n, nrhs, a, lda, b, ldb, s, rcond, rank, work, lwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgelsd_", *info));
 #else
   (void)m;
   (void)n;
@@ -2136,6 +2145,7 @@ gelsd(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgelsd_(m, n, nrhs, a, lda, b, ldb, s, rcond, rank, work, lwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgelsd_", *info));
 #else
   (void)m;
   (void)n;
@@ -2190,6 +2200,7 @@ gelsd(const dealii::types::blas_int *m,
           rwork,
           iwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgelsd_", *info));
 #else
   (void)m;
   (void)n;
@@ -2245,6 +2256,7 @@ gelsd(const dealii::types::blas_int *m,
           rwork,
           iwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgelsd_", *info));
 #else
   (void)m;
   (void)n;
@@ -2623,6 +2635,7 @@ geqrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgeqrf_(m, n, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgeqrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -2650,6 +2663,7 @@ geqrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgeqrf_(m, n, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgeqrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -2677,6 +2691,7 @@ geqrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cgeqrf_(m, n, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgeqrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -2704,6 +2719,7 @@ geqrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zgeqrf_(m, n, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgeqrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -2763,6 +2779,7 @@ gesdd(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgesdd_(jobz, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgesdd_", *info));
 #else
   (void)jobz;
   (void)m;
@@ -2802,6 +2819,7 @@ gesdd(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgesdd_(jobz, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgesdd_", *info));
 #else
   (void)jobz;
   (void)m;
@@ -2843,6 +2861,7 @@ gesdd(const char *                   jobz,
 #ifdef DEAL_II_WITH_LAPACK
   cgesdd_(
     jobz, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, rwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgesdd_", *info));
 #else
   (void)jobz;
   (void)m;
@@ -2885,6 +2904,7 @@ gesdd(const char *                   jobz,
 #ifdef DEAL_II_WITH_LAPACK
   zgesdd_(
     jobz, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, rwork, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgesdd_", *info));
 #else
   (void)jobz;
   (void)m;
@@ -2951,6 +2971,7 @@ gesvd(const char *                   jobu,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgesvd_(jobu, jobvt, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgesvd_", *info));
 #else
   (void)jobu;
   (void)jobvt;
@@ -2990,6 +3011,7 @@ gesvd(const char *                   jobu,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgesvd_(jobu, jobvt, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgesvd_", *info));
 #else
   (void)jobu;
   (void)jobvt;
@@ -3031,6 +3053,7 @@ gesvd(const char *                   jobu,
 #ifdef DEAL_II_WITH_LAPACK
   cgesvd_(
     jobu, jobvt, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgesvd_", *info));
 #else
   (void)jobu;
   (void)jobvt;
@@ -3073,6 +3096,7 @@ gesvd(const char *                   jobu,
 #ifdef DEAL_II_WITH_LAPACK
   zgesvd_(
     jobu, jobvt, m, n, a, lda, s, u, ldu, vt, ldvt, work, lwork, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgesvd_", *info));
 #else
   (void)jobu;
   (void)jobvt;
@@ -3119,6 +3143,7 @@ getrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgetrf_(m, n, a, lda, ipiv, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgetrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -3142,6 +3167,7 @@ getrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgetrf_(m, n, a, lda, ipiv, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgetrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -3165,6 +3191,7 @@ getrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cgetrf_(m, n, a, lda, ipiv, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgetrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -3188,6 +3215,7 @@ getrf(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zgetrf_(m, n, a, lda, ipiv, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgetrf_", *info));
 #else
   (void)m;
   (void)n;
@@ -3227,6 +3255,7 @@ getri(const dealii::types::blas_int *n,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgetri_(n, a, lda, ipiv, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgetri_", *info));
 #else
   (void)n;
   (void)a;
@@ -3252,6 +3281,7 @@ getri(const dealii::types::blas_int *n,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgetri_(n, a, lda, ipiv, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgetri_", *info));
 #else
   (void)n;
   (void)a;
@@ -3277,6 +3307,7 @@ getri(const dealii::types::blas_int *n,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cgetri_(n, a, lda, ipiv, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgetri_", *info));
 #else
   (void)n;
   (void)a;
@@ -3302,6 +3333,7 @@ getri(const dealii::types::blas_int *n,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zgetri_(n, a, lda, ipiv, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgetri_", *info));
 #else
   (void)n;
   (void)a;
@@ -3346,6 +3378,7 @@ getrs(const char *                   trans,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sgetrs_(trans, n, nrhs, a, lda, ipiv, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sgetrs_", *info));
 #else
   (void)trans;
   (void)n;
@@ -3375,6 +3408,7 @@ getrs(const char *                   trans,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dgetrs_(trans, n, nrhs, a, lda, ipiv, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dgetrs_", *info));
 #else
   (void)trans;
   (void)n;
@@ -3404,6 +3438,7 @@ getrs(const char *                   trans,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cgetrs_(trans, n, nrhs, a, lda, ipiv, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cgetrs_", *info));
 #else
   (void)trans;
   (void)n;
@@ -3433,6 +3468,7 @@ getrs(const char *                   trans,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zgetrs_(trans, n, nrhs, a, lda, ipiv, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zgetrs_", *info));
 #else
   (void)trans;
   (void)n;
@@ -3743,6 +3779,7 @@ lascl(const char *                   type,
 {
 #ifdef DEAL_II_WITH_LAPACK
   slascl_(type, kl, ku, cfrom, cto, m, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("slascl_", *info));
 #else
   (void)type;
   (void)kl;
@@ -3774,6 +3811,7 @@ lascl(const char *                   type,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dlascl_(type, kl, ku, cfrom, cto, m, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dlascl_", *info));
 #else
   (void)type;
   (void)kl;
@@ -3805,6 +3843,7 @@ lascl(const char *                   type,
 {
 #ifdef DEAL_II_WITH_LAPACK
   clascl_(type, kl, ku, cfrom, cto, m, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("clascl_", *info));
 #else
   (void)type;
   (void)kl;
@@ -3836,6 +3875,7 @@ lascl(const char *                   type,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zlascl_(type, kl, ku, cfrom, cto, m, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zlascl_", *info));
 #else
   (void)type;
   (void)kl;
@@ -3883,6 +3923,7 @@ orgqr(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sorgqr_(m, n, k, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sorgqr_", *info));
 #else
   (void)m;
   (void)n;
@@ -3912,6 +3953,7 @@ orgqr(const dealii::types::blas_int *m,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dorgqr_(m, n, k, a, lda, tau, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dorgqr_", *info));
 #else
   (void)m;
   (void)n;
@@ -3969,6 +4011,7 @@ ormqr(const char *                   side,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sormqr_(side, trans, m, n, k, a, lda, tau, c, ldc, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sormqr_", *info));
 #else
   (void)side;
   (void)trans;
@@ -4006,6 +4049,7 @@ ormqr(const char *                   side,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dormqr_(side, trans, m, n, k, a, lda, tau, c, ldc, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dormqr_", *info));
 #else
   (void)side;
   (void)trans;
@@ -4059,6 +4103,7 @@ pocon(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   spocon_(uplo, n, a, lda, anorm, rcond, work, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("spocon_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4088,6 +4133,7 @@ pocon(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dpocon_(uplo, n, a, lda, anorm, rcond, work, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dpocon_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4117,6 +4163,7 @@ pocon(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cpocon_(uplo, n, a, lda, anorm, rcond, work, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cpocon_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4146,6 +4193,7 @@ pocon(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zpocon_(uplo, n, a, lda, anorm, rcond, work, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zpocon_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4184,6 +4232,7 @@ potrf(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   spotrf_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("spotrf_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4205,6 +4254,7 @@ potrf(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dpotrf_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dpotrf_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4226,6 +4276,7 @@ potrf(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cpotrf_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cpotrf_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4247,6 +4298,7 @@ potrf(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zpotrf_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zpotrf_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4281,6 +4333,7 @@ potri(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   spotri_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("spotri_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4302,6 +4355,7 @@ potri(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dpotri_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dpotri_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4323,6 +4377,7 @@ potri(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cpotri_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cpotri_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4344,6 +4399,7 @@ potri(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zpotri_(uplo, n, a, lda, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zpotri_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4384,6 +4440,7 @@ potrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   spotrs_(uplo, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("spotrs_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4411,6 +4468,7 @@ potrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dpotrs_(uplo, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dpotrs_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4438,6 +4496,7 @@ potrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   cpotrs_(uplo, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("cpotrs_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4465,6 +4524,7 @@ potrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   zpotrs_(uplo, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("zpotrs_", *info));
 #else
   (void)uplo;
   (void)n;
@@ -4511,6 +4571,7 @@ stev(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   sstev_(jobz, n, d, e, z, ldz, work, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("sstev_", *info));
 #else
   (void)jobz;
   (void)n;
@@ -4538,6 +4599,7 @@ stev(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dstev_(jobz, n, d, e, z, ldz, work, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dstev_", *info));
 #else
   (void)jobz;
   (void)n;
@@ -4583,6 +4645,7 @@ syev(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ssyev_(jobz, uplo, n, a, lda, w, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ssyev_", *info));
 #else
   (void)jobz;
   (void)uplo;
@@ -4612,6 +4675,7 @@ syev(const char *                   jobz,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dsyev_(jobz, uplo, n, a, lda, w, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dsyev_", *info));
 #else
   (void)jobz;
   (void)uplo;
@@ -4716,6 +4780,7 @@ syevr(const char *                   jobz,
           iwork,
           liwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ssyevr_", *info));
 #  ifdef DEAL_II_HAVE_FP_EXCEPTIONS
   fesetenv(&fp_exceptions);
 #  endif // DEAL_II_HAVE_FP_EXCEPTIONS
@@ -4800,6 +4865,7 @@ syevr(const char *                   jobz,
           iwork,
           liwork,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dsyevr_", *info));
 #  ifdef DEAL_II_HAVE_FP_EXCEPTIONS
   fesetenv(&fp_exceptions);
 #  endif // DEAL_II_HAVE_FP_EXCEPTIONS
@@ -4908,6 +4974,7 @@ syevx(const char *                   jobz,
           iwork,
           ifail,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ssyevx_", *info));
 #else
   (void)jobz;
   (void)range;
@@ -4978,6 +5045,7 @@ syevx(const char *                   jobz,
           iwork,
           ifail,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dsyevx_", *info));
 #else
   (void)jobz;
   (void)range;
@@ -5044,6 +5112,7 @@ sygv(const dealii::types::blas_int *itype,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ssygv_(itype, jobz, uplo, n, a, lda, b, ldb, w, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ssygv_", *info));
 #else
   (void)itype;
   (void)jobz;
@@ -5079,6 +5148,7 @@ sygv(const dealii::types::blas_int *itype,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dsygv_(itype, jobz, uplo, n, a, lda, b, ldb, w, work, lwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dsygv_", *info));
 #else
   (void)itype;
   (void)jobz;
@@ -5185,6 +5255,7 @@ sygvx(const dealii::types::blas_int *itype,
           iwork,
           ifail,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ssygvx_", *info));
 #else
   (void)itype;
   (void)jobz;
@@ -5264,6 +5335,7 @@ sygvx(const dealii::types::blas_int *itype,
           iwork,
           ifail,
           info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dsygvx_", *info));
 #else
   (void)itype;
   (void)jobz;
@@ -5536,6 +5608,7 @@ trcon(const char *                   norm,
 {
 #ifdef DEAL_II_WITH_LAPACK
   strcon_(norm, uplo, diag, n, a, lda, rcond, work, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("strcon_", *info));
 #else
   (void)norm;
   (void)uplo;
@@ -5567,6 +5640,7 @@ trcon(const char *                   norm,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dtrcon_(norm, uplo, diag, n, a, lda, rcond, work, iwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dtrcon_", *info));
 #else
   (void)norm;
   (void)uplo;
@@ -5598,6 +5672,7 @@ trcon(const char *                   norm,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ctrcon_(norm, uplo, diag, n, a, lda, rcond, work, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ctrcon_", *info));
 #else
   (void)norm;
   (void)uplo;
@@ -5629,6 +5704,7 @@ trcon(const char *                   norm,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ztrcon_(norm, uplo, diag, n, a, lda, rcond, work, rwork, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ztrcon_", *info));
 #else
   (void)norm;
   (void)uplo;
@@ -5802,6 +5878,7 @@ trtrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   strtrs_(uplo, trans, diag, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("strtrs_", *info));
 #else
   (void)uplo;
   (void)trans;
@@ -5833,6 +5910,7 @@ trtrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   dtrtrs_(uplo, trans, diag, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("dtrtrs_", *info));
 #else
   (void)uplo;
   (void)trans;
@@ -5864,6 +5942,7 @@ trtrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ctrtrs_(uplo, trans, diag, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ctrtrs_", *info));
 #else
   (void)uplo;
   (void)trans;
@@ -5895,6 +5974,7 @@ trtrs(const char *                   uplo,
 {
 #ifdef DEAL_II_WITH_LAPACK
   ztrtrs_(uplo, trans, diag, n, nrhs, a, lda, b, ldb, info);
+  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("ztrtrs_", *info));
 #else
   (void)uplo;
   (void)trans;

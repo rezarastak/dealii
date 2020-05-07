@@ -226,6 +226,8 @@ class FortranRoutine:
     self.general_name : string containing the general name (i.e., name without
     field code) of the subroutine or function.
 
+    self.arguments: list of argument names.
+
     self.arguments_by_type : A dictionary (with regular expression keys) mapping
     regular expressions matching FORTRAN types to input arguments.
     """
@@ -451,13 +453,19 @@ class FortranRoutine:
             print("  ", end='', file=file)
         else:
             print("  return ", end='', file=file)
-        print("{}{}_(".format(self.field_code, self.general_name), end='', file=file)
+        fortran_func_name = str(self) + "_"
+        print("{}(".format(fortran_func_name), end='', file=file)
         for index, argument in enumerate(self.arguments):
             print(argument.lower(), end='', file=file)
 
             if index < len(self.arguments) - 1:
                 print(", ", end='', file=file)
         print(");", file=file)
+
+        # make sure the BLAS/LAPACK call was given correct aurguments (in debug mode)
+        if self.arguments[-1].lower() == "info":
+            print('  Assert(*info >= 0, LAPACKSupport::ExcErrorCode("{}", *info));'
+                  .format(fortran_func_name), file=file)
 
         if self.disable_floating_point_exceptions:
             print("#ifdef DEAL_II_HAVE_FP_EXCEPTIONS", file=file)
@@ -602,9 +610,9 @@ def main():
               file=output)
         print("// version 2.1 of the License, or (at your option) any later version.",
               file=output)
-        print("// The full text of the license can be found in the file LICENSE at",
+        print("// The full text of the license can be found in the file LICENSE.md at",
               file=output)
-        print("// the top level of the deal.II distribution.",
+        print("// the top level directory of deal.II.",
               file=output)
         print("//",
               file=output)
